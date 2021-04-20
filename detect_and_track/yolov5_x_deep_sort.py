@@ -207,7 +207,7 @@ def detect_and_track4(opt):
                 bbox_tlwh = []
                 bbox_xyxy = outputs[:, :4]
                 identities = outputs[:, -1]
-                class_names = [class_list[cls_name] for cls_name in cls_names]
+                class_names = [class_list[cls_name] if cls_name != -1 else "" for cls_name in cls_names]
                 frame = draw_boxes(frame, bbox_xyxy, identities, class_names=class_names)
 
                 for bb_xyxy in bbox_xyxy:

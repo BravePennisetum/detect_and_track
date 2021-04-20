@@ -60,7 +60,7 @@ class DeepSort(object):
             if track.name is not None:
                 cls_names.append(track.name)
             else:
-                cls_names.append('')
+                cls_names.append(-1)
         if len(outputs) > 0:
             outputs = np.stack(outputs, axis=0)
         return outputs, cls_names

@@ -23,8 +23,11 @@ def draw_boxes(img, bbox, identities=None, offset=(0, 0), class_names=None):
         id = int(identities[i]) if identities is not None else 0
         color = compute_color_for_labels(id)
         if class_names is not None:
-            name = class_names[i]
-            label = '{}{:d} - {}'.format("", id, name)
+            if class_names[i] != "":
+                name = class_names[i]
+                label = '{}{:d} - {}'.format("", id, name)
+            else:
+                label = '{}{:d}'.format("", id)
         else:
             label = '{}{:d}'.format("", id)
         t_size = cv2.getTextSize(label, cv2.FONT_HERSHEY_PLAIN, 2, 2)[0]
