@@ -28,7 +28,7 @@ class DeepSort(object):
         # generate detections
         features = self._get_features(bbox_xywh, ori_img)
         bbox_tlwh = self._xywh_to_tlwh(bbox_xywh)
-        if class_names is not None:
+        if class_names is not None and len(class_names) > 0:
             detections = [Detection(bbox_tlwh[i], conf, features[i], class_names[i]) for i, conf in enumerate(confidences) if
                           conf > self.min_confidence]
         else:
