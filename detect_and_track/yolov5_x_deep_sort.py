@@ -119,6 +119,7 @@ def detect_and_track4(opt):
     classes = []
     frame_number = 0
     results = []
+    show_boxes = True
     try:
         for path, img, im0s, vid_cap in dataset:
             # Original imaage
@@ -204,7 +205,7 @@ def detect_and_track4(opt):
             outputs, cls_names = deepsort.update(bbox_xywh, cls_conf_to_use, frame, classes_tensor)
 
             # draw boxes for visualization
-            if len(outputs) > 0:
+            if len(outputs) > 0 and show_boxes:
                 bbox_tlwh = []
                 bbox_xyxy = outputs[:, :4]
                 identities = outputs[:, -1]
@@ -229,6 +230,8 @@ def detect_and_track4(opt):
             elif waitKey & 0xFF == ord('q'):
                 print('\n- Button Pressed: "q".\n')
                 break
+            elif waitKey & 0xFF == ord('b'):
+                show_boxes = not show_boxes
             else:
                 cv2.imshow('YOLOv5 x Deep SORT', frame)
                 video_writer.write(frame)
