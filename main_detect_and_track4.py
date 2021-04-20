@@ -9,8 +9,10 @@ if __name__ == '__main__':
     sys.path.insert(0, 'detection/yolov5')
 
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', nargs='+', type=str, default='./weights/yolov5s_cocoXseagull_50.pt', help='model.pt path(s)')
-    parser.add_argument('--source', type=str, default='../tracking data/videos/uav_rgb.mp4', help='source')  # file/folder, 0 for webcam
+    parser.add_argument('--weights', nargs='+', type=str, default='./weights/yolov5s_cocoXseagull_50.pt',
+                        help='model.pt path(s)')
+    parser.add_argument('--source', type=str, default='../tracking data/videos/uav_rgb.mp4',
+                        help='source')  # file/folder, 0 for webcam
     parser.add_argument('--project', default='runs/detect', help='save results to project/name')
     parser.add_argument('--name', default='exp', help='save results to project/name')
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
@@ -25,7 +27,8 @@ if __name__ == '__main__':
     parser.add_argument('--augment', action='store_true', help='augmented inference')
     parser.add_argument('--update', action='store_true', help='update all models')
     parser.add_argument('--exist-ok', action='store_true', help='existing project/name ok, do not increment')
-    parser.add_argument("--config_deepsort", type=str, default="./tracking/deep_sort/configs/original_deep_sort.yaml")
+    parser.add_argument("--config_deepsort", type=str, default="./tracking/deep_sort/configs/original_deep_sort.yaml",
+                        help='configuration file for deep SORT initialization.')
     opt_ = parser.parse_args()
     print(opt_)
 

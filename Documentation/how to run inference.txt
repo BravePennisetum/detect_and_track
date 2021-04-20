@@ -1,0 +1,21 @@
+# YOLOv5 + Deep SORT
+python main_detect_and_track4.py
+
+all arguments are optional:
+--weights './weights/yolov5s_cocoXseagull_50.pt'
+--source
+--project
+--name
+--img-size
+--conf-thres
+--iou-thres
+--device
+--view-img
+--save-txt
+--save-conf
+--classes
+--agnostic-nms
+--augment
+--update
+--exist-ok
+--config_deepsort "./tracking/deep_sort/configs/original_deep_sort.yaml"
