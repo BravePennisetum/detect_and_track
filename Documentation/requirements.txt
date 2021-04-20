@@ -1,0 +1,13 @@
+pip install opencv-python
+pip install opencv-contrib-python
+
+# For Linux
+opencv-python~=4.1.2.30
+opencv-contrib-python~=4.1.2.30
+
+# For Windos
+opencv-python~=4.2.0.32
+opencv-contrib-python~=4.2.0.32
+
+numpy~=1.18.5
+Pillow~=7.1.2
