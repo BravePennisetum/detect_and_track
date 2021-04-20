@@ -35,7 +35,7 @@ class_list = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'trai
 
 
 # TODO - to be removed in utils file
-def names_to_indexes(class_names):
+def names_to_indexes(class_names, class_list):
     class_idxs = []
     for class_name in class_names:
         for i, cls in enumerate(class_list):
@@ -103,6 +103,7 @@ def detect_and_track4(opt):
 
     # Get names and colors
     names = detector_model.module.names if hasattr(detector_model, 'module') else detector_model.names
+    class_list = names
     print('\n- Available classes for detection:\n', names)
     colors_db = [[random.randint(0, 255) for _ in range(3)] for _ in names]
 
@@ -177,7 +178,7 @@ def detect_and_track4(opt):
             if len(bboxes) > 0:
                 bboxes_tensor = torch.FloatTensor(bboxes)
 
-                class_indexes = names_to_indexes(classes)
+                class_indexes = names_to_indexes(classes, class_list)
                 classes_tensor = torch.LongTensor(class_indexes)
                 cls_conf_tensor = torch.FloatTensor(cls_conf)
             else:
