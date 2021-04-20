@@ -1,11 +1,8 @@
-pip install opencv-python
-pip install opencv-contrib-python
-
-# For Linux
+# MultiTracker for Linux
 opencv-python~=4.1.2.30
 opencv-contrib-python~=4.1.2.30
 
-# For Windos
+# MultiTracker for Windows
 opencv-python~=4.2.0.32
 opencv-contrib-python~=4.2.0.32
 
